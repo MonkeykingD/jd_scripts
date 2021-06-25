@@ -62,7 +62,10 @@ function getUserId(params) {
 function qywxamNotify(text, desp, params) {
   return new Promise(resolve => {
     if (QYWX_AM) {
-      let userId = getUserId(params);
+      let userId = "";
+      if (params) {
+        userId = getUserId(params);
+      }
       if (userId == "") {
         userId = process.env.QYWX_TOUSER1;
       }
